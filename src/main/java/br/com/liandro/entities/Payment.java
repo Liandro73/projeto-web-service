@@ -1,5 +1,6 @@
 package br.com.liandro.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,6 +27,7 @@ public class Payment implements Serializable {
     @Getter @Setter
     private Instant moment;
 
+    @JsonIgnore
     @OneToOne
     @MapsId
     @Getter @Setter
