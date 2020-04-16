@@ -1,6 +1,7 @@
 package br.com.liandro.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,7 +26,7 @@ public class Category implements Serializable {
     private String name;
 
     @JsonIgnore
-    @ManyToMany(mappedBy = "categories")
+    @ManyToMany
     private Set<Product> products = new HashSet<>();
 
     public Category(Long id, String name) {

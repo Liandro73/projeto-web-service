@@ -2,9 +2,6 @@ package br.com.liandro.entities;
 
 import br.com.liandro.entities.enums.OrderStatus;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -37,8 +34,7 @@ public class Order implements Serializable {
     @JoinColumn(name = "client_id")
     private User client;
 
-    @JsonIgnore
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "id.order")
+    @OneToMany(mappedBy = "id.order")
     private Set<OrdemItem> items = new HashSet<>();
 
     public Order(Long id, Instant moment, OrderStatus orderStatus, User client) {
