@@ -63,5 +63,4 @@ public class OrdemItem implements Serializable {
     public int hashCode() {
         return Objects.hash(id);
     }
-
 }
